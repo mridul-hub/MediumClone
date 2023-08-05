@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
         render json: Article.all
     end
     def create
-        @newarticle =  Article.new(title: params[:title], topics: params[:topics], description: params[:description],likesCount:0,viewCount:1,author_id: @current_user.id)
+        @newarticle =  Article.new(title: params[:title], topics: params[:topics], description: params[:description],likesCount:0,viewCount:1,author_id: @current_user.id,commentCount:0)
         begin
             @newarticle.save
             render json: @newarticle

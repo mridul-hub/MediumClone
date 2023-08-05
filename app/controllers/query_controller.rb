@@ -1,7 +1,7 @@
 class QueryController < ApplicationController
     skip_before_action :verify_authenticity_token
     def allpostedArticles
-        render json: Article.find_by(author_id: @current_user.id)
+        render json: Article.where(author_id: @current_user.id)
     end
     
     def articlebyAuthor
@@ -12,5 +12,8 @@ class QueryController < ApplicationController
     def articlebyTopic
         render json: Article.where(:topics=>request.headers["topic"])
     end    
-        
+
+    def searchuser
+        render json: Author.where(:name=>request.headers["username"])
+    end      
 end

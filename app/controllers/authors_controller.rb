@@ -16,7 +16,7 @@ class AuthorsController < ApplicationController
     def login
         command = AuthenticateUser.call(params[:email], params[:password])
         if command.success?
-            render json: { auth_token: command.result }
+            render json: { auth_token: command.result,user: Author.find_by(email:params[:email]) }
         else
             render json: { error: command.errors }, status: :unauthorized
         end
