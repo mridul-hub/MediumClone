@@ -7,4 +7,11 @@ class Author < ApplicationRecord
         inverse_of: :author,
         dependent: :delete_all
     )
+    has_many(
+        :comments,
+        class_name: 'Comment',
+        foreign_key: 'comment_id',
+        inverse_of: :author,
+        dependent: :delete_all
+    )  
 end

@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get 'articlebylogeduser', to: 'query#allpostedArticles'
   get 'searchbyauthor', to: 'query#articlebyAuthor'
   get 'searchbytopic', to: 'query#articlebyTopic'
+  get 'finduser', to: 'query#searchuser'
+  post 'createComment', to: 'comments#addComment'
+  post 'getArticleComment', to: 'comments#getCommentsofArticle'
 end
