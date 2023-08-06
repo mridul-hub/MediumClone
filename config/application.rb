@@ -1,5 +1,5 @@
 require_relative "boot"
-
+require 'rack/cors'
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -18,5 +18,11 @@ module TestApptwo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
   end
 end
