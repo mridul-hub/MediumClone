@@ -46,6 +46,8 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 gem 'jwt'
 gem 'simple_command'
+gem 'stripe'
+=======
 
 gem "rack-cors"
 
